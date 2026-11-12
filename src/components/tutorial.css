@@ -1,0 +1,365 @@
+.tutorial-page {
+  max-width: 480px;
+  min-height: 100dvh;
+  margin: auto;
+  padding: 12px 12px 24px;
+  background: #fffaf1;
+  color: #243747;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.tutorial-page button {
+  font: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.tut-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  font-size: 12px;
+}
+.tut-top button,
+.tut-nav button {
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 12px;
+  background: #efeade;
+  color: #243747;
+}
+.tut-nav {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.tut-nav button {
+  flex: 1;
+  background: white;
+  border: 1px solid #d8d9ce;
+}
+.tut-nav button.active {
+  background: #233f4a;
+  color: white;
+}
+.tut-heading {
+  padding: 14px 2px 6px;
+}
+.tut-kicker {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #bd6550;
+  font-weight: 800;
+}
+.tut-heading h1 {
+  font-size: 21px;
+  line-height: 1.25;
+  margin: 6px 0;
+}
+.tut-heading p {
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+  color: #586b72;
+}
+.tut-task {
+  background: #e8f0dd;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+}
+.tut-board {
+  display: grid;
+  gap: 5px;
+}
+.tut-lane {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 4px;
+  border: 2px solid #e8e1d2;
+  border-radius: 12px;
+  background: white;
+  min-height: 66px;
+  transition: 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  color: #243747;
+}
+.tut-lane.tut-target {
+  border-color: #d5952c;
+  background: #fff8d9;
+  box-shadow: 0 0 0 2px #ffe9a7;
+}
+.tut-lane-label {
+  flex: 0 0 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+.tut-lane-label b {
+  font-size: 15px;
+}
+.tut-lane-label img {
+  width: 19px;
+  height: 19px;
+}
+.tut-lane-label small {
+  font-size: 9px;
+  width: 100%;
+  white-space: nowrap;
+}
+.tut-slots {
+  display: flex;
+  gap: 3px;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+}
+.tut-slot {
+  flex: 1;
+  min-width: 0;
+  aspect-ratio: 40/52;
+  border: 1px dashed #ded8c9;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tut-slot.tut-last {
+  border: 2px solid #85998c;
+}
+.tut-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 86px;
+  background-size: 100% 100%;
+  background-position: center;
+  position: relative;
+  color: #243747;
+}
+.tut-card strong {
+  font-size: 27px;
+  line-height: 1.15;
+}
+.tut-card > span {
+  font-size: 12px;
+}
+.tut-card > img {
+  width: 34px;
+  height: 34px;
+}
+.tut-card-small {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  aspect-ratio: 40/52;
+}
+.tut-card-small strong {
+  font-size: 18px;
+}
+.tut-card-small > span {
+  font-size: 9px;
+}
+.tut-danger {
+  width: 13px;
+  flex: 0 0 13px;
+  color: #bfad95;
+  font-size: 15px;
+  font-weight: bold;
+}
+.tut-danger.full {
+  color: #d75046;
+}
+.tut-message {
+  min-height: 36px;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 0 3px;
+  margin: 9px 0 2px;
+  color: #59695f;
+}
+.tut-hand {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  min-height: 90px;
+  align-items: center;
+}
+.tut-hand button {
+  border: 0;
+  background: none;
+  padding: 3px;
+  border-radius: 12px;
+  min-width: 44px;
+  transition: transform 0.15s;
+}
+.tut-hand button.tut-selected {
+  transform: translateY(-6px);
+  background: #f8d170;
+  box-shadow: 0 3px 0 #c79928;
+}
+.tut-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.tut-primary {
+  min-height: 44px;
+  border: 0;
+  border-radius: 14px;
+  background: #233f4a;
+  color: white;
+  padding: 11px 20px;
+  font-weight: 800;
+}
+.tut-primary:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.tut-subtle {
+  min-height: 44px;
+  border: 0;
+  border-radius: 10px;
+  background: #efeade;
+  color: #485e65;
+  padding: 8px 12px;
+}
+.tut-slide {
+  text-align: center;
+  padding: 22px 14px;
+  border-radius: 22px;
+  background: white;
+  box-shadow: 0 6px 24px #35483a0c;
+  margin-top: 15px;
+}
+.tut-slide > img {
+  width: 110px;
+  height: 110px;
+}
+.tut-slide h2 {
+  font-size: 23px;
+}
+.tut-slide p {
+  font-size: 15px;
+  line-height: 1.8;
+  min-height: 110px;
+}
+.tut-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+.tut-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e0dfd5;
+}
+.tut-dots span.on {
+  background: #bd6550;
+}
+.tut-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #20323a99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.tut-modal {
+  width: 100%;
+  max-width: 360px;
+  box-sizing: border-box;
+  border-radius: 24px;
+  background: #fffaf1;
+  padding: 22px;
+  text-align: center;
+  box-shadow: 0 20px 80px #0003;
+}
+.tut-modal h2 {
+  font-size: 20px;
+}
+.tut-modal p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.tut-modal > div {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0;
+}
+.tut-modal > div button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  border-radius: 12px;
+  border: 1px solid #d9d9c9;
+  background: white;
+  color: #243747;
+}
+.tut-modal > div img {
+  width: 26px;
+  height: 26px;
+}
+@media (max-height: 700px) {
+  .tutorial-page {
+    padding-top: 5px;
+  }
+  .tut-nav {
+    margin-top: 4px;
+  }
+  .tut-heading {
+    padding-top: 7px;
+  }
+  .tut-heading h1 {
+    font-size: 18px;
+  }
+  .tut-heading p {
+    font-size: 11px;
+  }
+  .tut-task {
+    padding: 7px;
+    margin: 6px 0;
+    min-height: 33px;
+    font-size: 12px;
+  }
+  .tut-lane {
+    min-height: 60px;
+  }
+  .tut-message {
+    margin-top: 5px;
+    font-size: 11px;
+    min-height: 30px;
+  }
+  .tut-card {
+    width: 54px;
+    height: 75px;
+  }
+  .tut-card-small {
+    width: 100%;
+    height: 100%;
+  }
+  .tut-hand {
+    min-height: 80px;
+  }
+  .tut-actions {
+    margin-top: 2px;
+  }
+}
