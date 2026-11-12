@@ -1,35 +1,46 @@
+/* A gentle paper-and-watercolour palette for the illustrated guide. */
 .rulebook-shell {
+  --ink: #40584a;
+  --muted-ink: #66796a;
+  --paper: #fffdf4;
+  --line: #d7dec9;
   max-width: 600px;
   margin: 0 auto;
   min-height: 100vh;
-  background: #faf8ee;
-  color: #263d32;
+  color: var(--ink);
   font-family: inherit;
+  background-color: #f4f3e8;
+  background-image:
+    radial-gradient(ellipse at 6% 6%, #dbe9da 0, transparent 34%),
+    radial-gradient(ellipse at 94% 28%, #f3e4df 0, transparent 28%),
+    repeating-linear-gradient(4deg, #fff9 0 1px, transparent 1px 7px);
 }
 .rulebook-top {
-  height: 60px;
+  min-height: 58px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
   padding: 0 18px;
-  background: #fffdf6;
-  border-bottom: 1px solid #e7e5d9;
+  background: #fcfaf1f2;
+  border-bottom: 1px solid #d7ddcc;
   position: sticky;
   top: 0;
   z-index: 10;
+  backdrop-filter: blur(8px);
 }
 .rulebook-top button {
   min-height: 44px;
   background: transparent;
-  color: #365e48;
-  font-weight: 800;
+  color: #496b58;
+  font-weight: 700;
 }
 .rulebook-top span {
+  font-family: Georgia, serif;
   font-size: 10px;
-  letter-spacing: 0.14em;
-  font-weight: 800;
-  color: #829487;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: #788c78;
 }
 .rulebook-content {
   padding: 16px 16px 48px;
@@ -37,189 +48,237 @@
 .rulebook-hero {
   overflow: hidden;
   position: relative;
-  border-radius: 24px;
-  background: #174a35;
-  min-height: 290px;
+  border-radius: 8px 32px 10px 28px;
+  background: #fcfaf0;
+  border: 1px solid #d7ddca;
   display: flex;
-  align-items: flex-end;
-  box-shadow: 0 8px 30px #1b40301c;
+  flex-direction: column;
+  box-shadow: 0 5px 18px #87927c1c;
 }
 .rulebook-cover {
-  position: absolute;
+  display: block;
   width: 100%;
-  height: 100%;
-  inset: 0;
+  height: auto;
+  aspect-ratio: 1.8 / 1;
   object-fit: cover;
-}
-.rulebook-hero:after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    #183f30ed 0%,
-    #183f30c9 42%,
-    #183f3030 100%
-  );
 }
 .rulebook-hero-copy {
   position: relative;
-  z-index: 1;
-  padding: 32px 25px;
-  color: #fffdf4;
+  padding: 24px 27px 25px;
+  background:
+    radial-gradient(ellipse at 88% 8%, #dcebd4aa, transparent 43%),
+    linear-gradient(115deg, #fffcf2, #f7f5e9);
+  color: #3b5846;
+}
+.rulebook-hero-copy::after {
+  content: "♪  ♩";
+  position: absolute;
+  right: 26px;
+  bottom: 22px;
+  color: #a7b99a;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  letter-spacing: 5px;
+  transform: rotate(-8deg);
+  pointer-events: none;
 }
 .rulebook-hero-copy span,
 .rulebook-chapter-head span {
+  font-family: Georgia, serif;
   font-size: 10px;
-  letter-spacing: 0.18em;
-  font-weight: 900;
-  color: #e8cd83;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: #839a78;
+}
+.rulebook-hero-copy h1,
+.rulebook-chapter-head h2,
+.rulebook-toc h2,
+.rulebook-end h2 {
+  font-family: "AppleMyungjo", "Nanum Myeongjo", Batang, Georgia, serif;
+  word-break: keep-all;
 }
 .rulebook-hero-copy h1 {
-  font-size: 34px;
-  line-height: 1.16;
-  letter-spacing: -0.05em;
-  margin: 12px 0;
-  color: white;
+  font-size: clamp(26px, 7vw, 32px);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.045em;
+  margin: 8px 0 10px;
+  color: #354f3f;
 }
 .rulebook-hero-copy p {
   font-size: 14px;
   line-height: 1.65;
-  color: #fff9e6;
+  color: #627766;
+  margin: 0;
 }
 .rulebook-toc {
-  background: #fffdf6;
-  border: 1px solid #ece6d6;
-  border-radius: 20px;
-  padding: 20px;
-  margin: 18px 0 22px;
+  position: relative;
+  background: #fffdf5e8;
+  border: 1px solid #dce1d1;
+  border-radius: 26px 10px 26px 12px;
+  padding: 23px 20px 20px;
+  margin: 20px 0 24px;
+  box-shadow: 0 3px 14px #87927c12;
 }
 .rulebook-toc h2 {
-  font-size: 17px;
-  margin: 0 0 14px;
+  font-size: 18px;
+  margin: 0 0 16px;
+  color: #435c49;
 }
 .rulebook-toc > div {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 7px;
+  gap: 8px;
 }
 .rulebook-toc a {
-  min-height: 42px;
+  min-height: 46px;
   display: flex;
-  gap: 7px;
+  gap: 8px;
   align-items: center;
-  background: #f5f6ed;
-  border-radius: 10px;
-  padding: 8px;
-  color: #365746;
+  background: #eff4e9;
+  border: 1px solid #e3eadc;
+  border-radius: 7px 15px 7px 14px;
+  padding: 9px 10px;
+  color: #48634f;
   text-decoration: none;
   font-size: 12px;
-  line-height: 1.3;
+  line-height: 1.4;
   font-weight: 700;
+  word-break: keep-all;
+}
+.rulebook-toc a:nth-child(4n + 2),
+.rulebook-toc a:nth-child(4n + 3) {
+  background: #f5eeea;
+  border-color: #eee3dd;
 }
 .rulebook-toc a span {
-  color: #b88944;
-  font-size: 10px;
+  color: #987c69;
+  font-family: Georgia, serif;
+  font-size: 11px;
+}
+.rulebook-toc a:focus-visible,
+.rulebook-shell button:focus-visible,
+.rulebook-end a:focus-visible,
+.rulebook-link:focus-visible {
+  outline: 3px solid #668f78;
+  outline-offset: 3px;
 }
 .rulebook-chapters {
   display: grid;
-  gap: 16px;
+  gap: 18px;
 }
 .rulebook-chapter {
   scroll-margin-top: 72px;
-  background: #fffdf8;
-  border: 1px solid #ece5d6;
-  border-radius: 22px;
+  background:
+    radial-gradient(ellipse at 95% 3%, #eaf2e3a8, transparent 42%),
+    repeating-linear-gradient(2deg, #fffdf900 0 5px, #f3eee336 5px 6px),
+    var(--paper);
+  border: 1px solid #e3dfcf;
+  border-radius: 12px 27px 11px 26px;
   overflow: hidden;
-  box-shadow: 0 4px 18px #3852390b;
+  box-shadow: 0 4px 14px #6d806312;
+}
+.rulebook-chapter:nth-child(3n + 2) {
+  background-color: #fdf9f4;
+  border-color: #e9dfd5;
+}
+.rulebook-chapter:nth-child(3n) {
+  background-color: #f9fbf7;
+  border-color: #dce7de;
 }
 .rulebook-chapter-head {
-  padding: 23px 22px 13px;
+  padding: 25px 22px 15px;
 }
 .rulebook-chapter-head span {
-  color: #b28343;
+  color: #9b8170;
 }
 .rulebook-chapter-head h2 {
   font-size: 22px;
   letter-spacing: -0.04em;
-  margin: 8px 0;
+  margin: 9px 0;
+  line-height: 1.4;
+  color: #3e5845;
 }
 .rulebook-chapter-head p {
   font-weight: 700;
-  color: #58705d;
-  line-height: 1.55;
+  color: #647a68;
+  line-height: 1.65;
   font-size: 14px;
   margin: 0;
+  word-break: keep-all;
 }
 .rulebook-chapter img {
   display: block;
   width: calc(100% - 32px);
   height: auto;
   margin: 0 16px;
-  border-radius: 15px;
-  background: #f2efe3;
+  border-radius: 8px 19px 8px 18px;
+  border: 1px solid #e6dfd1;
+  background: #f8f3e8;
 }
 .rulebook-chapter ul {
   list-style: none;
-  padding: 6px 22px 17px;
+  padding: 7px 22px 19px;
   margin: 0;
 }
 .rulebook-chapter li {
   font-size: 14px;
-  line-height: 1.75;
-  color: #43564a;
-  padding: 10px 0 10px 16px;
+  line-height: 1.85;
+  word-break: keep-all;
+  color: #4c6051;
+  padding: 11px 0 11px 19px;
   position: relative;
 }
 .rulebook-chapter li + li {
-  border-top: 1px solid #f0eee4;
+  border-top: 1px dashed #e5e3d7;
 }
-.rulebook-chapter li:before {
+.rulebook-chapter li::before {
   content: "♪";
   position: absolute;
   left: 0;
-  color: #c08b40;
-  font-weight: 800;
+  color: #a98d6b;
+  font-weight: 700;
 }
 .rulebook-end {
   text-align: center;
-  padding: 36px 8px;
+  padding: 40px 8px;
 }
 .rulebook-end > span {
   font-size: 32px;
-  color: #ba8c4b;
+  color: #a6b79a;
 }
 .rulebook-end h2 {
   font-size: 20px;
   margin: 8px 0;
+  color: #435e4b;
 }
 .rulebook-end p {
   font-size: 13px;
-  color: #708274;
+  color: #718375;
 }
 .rulebook-end button {
   display: block;
   min-height: 48px;
   margin: 20px auto 12px;
   padding: 0 26px;
-  border-radius: 14px;
-  background: #376d4d;
-  color: white;
-  font-weight: 800;
+  border-radius: 9px 20px 9px 20px;
+  background: #678b71;
+  color: #fffdf7;
+  font-weight: 700;
 }
 .rulebook-end a {
   font-size: 13px;
-  color: #65806d;
+  color: #567362;
 }
 .rulebook-link {
-  background: #fffaf0de;
-  border: 1px solid #dccda9;
-  color: #43644e;
+  background: #fffdf5ef;
+  border: 1px solid #d7dfca;
+  color: #4e6b56;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
   min-height: 36px;
   padding: 0 10px;
-  border-radius: 12px;
+  border-radius: 7px 14px 7px 14px;
   white-space: nowrap;
 }
 .home-top .rulebook-link {
@@ -236,25 +295,36 @@
   min-height: 36px;
 }
 @media (max-width: 360px) {
-  .rulebook-toc > div {
-    grid-template-columns: 1fr 1fr;
+  .rulebook-content {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+  .rulebook-toc {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+  .rulebook-toc a {
+    padding: 8px;
   }
   .rulebook-hero-copy h1 {
-    font-size: 29px;
+    font-size: 27px;
   }
   .rulebook-top span {
     letter-spacing: 0.05em;
   }
-  .home-top {
+  .home-top,
+  .game-top {
     gap: 4px;
   }
   .home-top .rulebook-link {
     padding: 0 7px;
   }
-  .game-top {
-    gap: 4px;
-  }
   .game-top .rulebook-link {
     padding: 0 6px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rulebook-shell * {
+    scroll-behavior: auto !important;
   }
 }

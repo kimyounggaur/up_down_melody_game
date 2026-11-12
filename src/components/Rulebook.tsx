@@ -175,7 +175,7 @@ export default function Rulebook() {
         <section className="rulebook-hero">
           <img
             className="rulebook-cover"
-            src="/rulebook/cover.webp"
+            src="/rulebook/cover-pastel.webp"
             alt="음표와 카드가 가득한 멜로디 정원"
           />
           <div className="rulebook-hero-copy">
