@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Card, { Icon } from "./Card";
 import Tutorial from "./Tutorial";
+import "./rulebook.css";
 import {
   Action,
   Scale,
@@ -583,20 +584,34 @@ export default function GameApp({
     <main
       className={`app-shell view-${view} ${prefs.colorAssist ? "color-assist" : ""}`}
     >
-      {view !== "home" && view !== "play" && view !== "learn" && (
-        <header className="page-top">
-          <button className="back-button" onClick={() => go("home")}>
-            ‹ 홈
-          </button>
-          <span>UPDOWN MELODY</span>
-        </header>
-      )}
+      {view !== "home" &&
+        view !== "learn" &&
+        (view !== "play" || !s || (s.status !== "playing" && !busy)) && (
+          <header className="page-top">
+            <button className="back-button" onClick={() => go("home")}>
+              ‹ 홈
+            </button>
+            <span>UPDOWN MELODY</span>
+            <button
+              className="rulebook-link"
+              onClick={() => router.push("/rulebook/")}
+            >
+              📖 룰북
+            </button>
+          </header>
+        )}
       {view === "home" && (
         <>
           <div className="home-art">
             <div className="home-top">
               <span className="brand-mark">♫</span>
               <span>음악이 놀이가 되는 순간</span>
+              <button
+                className="rulebook-link"
+                onClick={() => router.push("/rulebook/")}
+              >
+                📖 룰북
+              </button>
               <button
                 className="icon-button"
                 aria-label="설정"
@@ -733,6 +748,17 @@ export default function GameApp({
                     : `${Math.floor(Math.max(0, s.timerEndsAt - now) / 60000)}:${String(Math.floor(Math.max(0, s.timerEndsAt - now) / 1000) % 60).padStart(2, "0")}`}
                 </span>
               )}
+              <button
+                className="rulebook-link"
+                disabled={!!s.soloPending}
+                title={s.soloPending ? "먼저 솔로를 선언해 주세요" : undefined}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  router.push("/rulebook/");
+                }}
+              >
+                📖 룰북
+              </button>
               <button
                 className="icon-button"
                 aria-label="게임 메뉴"
@@ -1011,6 +1037,7 @@ export default function GameApp({
         ))}
       {view === "learn" && (
         <Tutorial
+          onRulebook={() => router.push("/rulebook/")}
           initialStep={Math.min(store.tutorialStep, 6)}
           onExit={() => go("home")}
           onProgress={(n) => store.setTutorialStep(n)}

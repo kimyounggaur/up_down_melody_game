@@ -50,10 +50,12 @@ const notes: Record<number, string> = {
 export default function Tutorial({
   onExit,
   onProgress,
+  onRulebook,
   initialStep = 0,
 }: {
   onExit: () => void;
   onProgress: (n: number) => void;
+  onRulebook: () => void;
   initialStep?: number;
 }) {
   const [step, setStep] = useState(Math.min(6, Math.max(0, initialStep)));
@@ -258,6 +260,9 @@ export default function Tutorial({
           ← 홈
         </button>
         <span>직접 배우기 · {step + 1}/7</span>
+        <button className="rulebook-link" onClick={onRulebook}>
+          📖 룰북
+        </button>
         <button onClick={onExit}>건너뛰기</button>
       </header>
       <nav className="tut-nav">
